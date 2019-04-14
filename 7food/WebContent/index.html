@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>hhhhhhhhhhhhhh</h3>
+
+<form method="POST"  action="NewFile.jsp"  onchange="return caltot()"> 
+
+name<input type="text" name="uname">
+email<input type="email" name="emailid">
+
+<h3>menu</h3>
+<table width="100%">	
+	<tr><th>Item name</th><th>quantity</th><th>cost</th><th>total</th></tr>
+	<tr>
+		<td>burger<input type="hidden" name="itemname" value="burger-25"></td>
+		<td><input type="number" name="itemcount" ></td>
+		<td class="itemprice">25</td>
+		<td><input type="number" name="itemtotal" value="0"></td>
+		</tr>
+		
+	<tr>
+		<td>coffee<input type="hidden" name="itemname" value="coffee-20"></td>
+		<td><input type="number" name="itemcount" ></td>
+		<td class="itemprice">20</td>
+		<td><input type="number" name="itemtotal" value="0"></td>
+		
+		</tr>
+		
+		<tr>
+		<td>samosa<input type="hidden" name="itemname" value="samosa-20"></td>
+		<td><input type="number" name="itemcount" ></td>
+		<td class="itemprice">20</td>
+		<td><input type="number" name="itemtotal" value="0"></td>
+			
+		</tr>
+		<tr></tr>
+		<tr>
+		  <td></td>
+		  <td></td>
+		  <td>total</td>
+		<td><input type="number" name="total" id="total" placeholder="0"></td>
+		</tr>
+		
+		<tr>
+		<td></td>
+		  <td></td>
+		  <td></td>
+		<td><input type="submit" name="submit" value="place order"></td>
+		</tr>
+	</table>		
+		
+</form>
+
+
+
+     <script >
+
+ function caltot()
+ {
+	var itemps=document.getElementsByClassName("itemprice");
+	var finall=0;
+	
+	for(var i=0;i<itemps.length;i++)
+	{
+		var cost=parseInt(document.getElementsByClassName("itemprice")[i].innerHTML);
+		var quantity=parseInt(document.getElementsByName("itemcount")[i].value);
+		var total=cost*quantity;
+	    finall=finall+total;
+        document.getElementsByName("itemtotal")[i].value=total;
+   }
+	
+	document.getElementById("total").value=finall;
+
+	return true;
+ }
+ </script>
+
+
+
+
+</body>
+</html>
